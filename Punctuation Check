@@ -1,0 +1,18 @@
+// Checking user input for char
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  char ch1;
+  cout << "Please enter a character: " << flush;
+  ch1 = cin.get();
+
+  if( ispunct(ch1)){ 
+    // == 0 || isalpnuma(ch1) == 1
+  cout << "This is punctuation!";
+  }else{
+  cout << "This isn't punctuation!";
+  }
+  return 0;
+}
