@@ -1,0 +1,54 @@
+#Variables
+# Input
+# If/Else statements
+# Lists/Array
+# Functions
+
+age = int(input("Enter your age: "))
+
+status = True
+
+#if, elif(else if), else
+
+# check if the age is under 13
+if age < 13:
+  print("Under 13 years old: ")
+elif age < 18:
+  print("Under 18 years old: ")
+elif age < 21:
+  print("Under 21 years old")
+else:
+  print("Over 21 years old")
+# check if the age is under 18
+# check if the age is under 21
+
+
+# Make a variable called car_price, and set it equal to 10000, if the car_price is less than 5000, print out "Too cheap". If the car price is less than 20000, print out "just right", if the car price is over 100000, print out "Too expensive". Otherwise print out, "no prices" 
+
+car_price = 10000
+
+if car_price < 5000:
+  print("Too cheap")
+elif car_price < 20000:
+  print("Just right")
+elif car_price > 100000:
+  print("Too expensive")
+else:
+  print("no prices")
+
+
+num = 100
+if num % 2 == 0:
+  print("even")
+else:
+  print("Odd")
+
+if num % 2 != 0:
+  print("odd")
+
+nums = []
+for i in range(10):
+  number = input("Enter a number: ")
+  nums.append(number)
+  
+print(nums)
