@@ -1,0 +1,31 @@
+"""
+public class Dog{
+
+  private int w; 
+  private int h;
+
+  public Dog(int height, int weight){
+    this.w = weight;
+    this.h = height; 
+
+  }
+}
+"""
+
+class Dog:
+  # __init__ means it's a constructor
+  def __init__(self, height, weight):
+    self.w = weight
+    self.h = height
+
+  # getter, get weight
+  def get_weight(self):
+    #this returns the weight
+    return self.w
+
+  def get_height(self):
+    return self.h
+
+  # setter (setting the weight)
+  def set_weight(self, setWeight):
+    self.w = setWeight
