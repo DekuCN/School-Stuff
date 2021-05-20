@@ -1,0 +1,10 @@
+def addNumbers(x:int ,y:int):
+  print(x+y)
+
+def subNumbers(x:int, y:int):
+  #rint(x-y)
+  return x - y
+  
+
+result = subNumbers(10, 10)
+print(result)
