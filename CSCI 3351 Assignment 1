@@ -1,0 +1,73 @@
+#Author: Christian Nnonyelu
+#Date: 5/23/2021
+#Desc: This program will take 4 characters from the user and print them out in the following ways: One character each line
+#               First two characters, first two characters reversed, last two       characters
+#               First three characters, first three characters after first character
+#               All characters in one license
+
+word = [] #list for the characters
+
+list_size = 4
+print("Welcome! This program will give multiple arrangements for the 4 characters you enter.")
+for i in range(0,list_size): #This loop populates the list
+  element = input("Enter a letter: ")
+  print(element)
+  word.append(element)
+print(word)
+
+new_word = "" #This section prints every character individually
+for y in word:
+  new_word = y
+  print(new_word)
+print("")
+
+
+#This prints the first two characters together
+new_word = ""
+for i in word[0:2]:
+  new_word = i
+  print(new_word, end = " ")
+
+print("")
+new_word = "" #this should print first two characters in reverse
+for o in reversed(word[0:2]):
+  new_word = o
+  print(new_word, end = " ")  
+
+print("")
+#This prints the last two characters together
+new_word = ""
+for i in word[2:4]:
+  new_word = i
+  print(new_word, end = " ")
+
+print("")
+print("") 
+new_word = ""
+for t in word[0:3]: #This should print first 3 characters
+  new_word = t
+  print(new_word, end = " ")
+
+print("")
+new_word = ""
+for h in word[1:4]: #this should print first 3 characters after first character
+  new_word = h
+  print(new_word, end = " ")
+
+print("")
+print("")
+new_word = ""
+for k in word:
+  new_word = k
+  print(new_word, end = " ")  
+
+
+
+#listToString = ' '.join(element for element in list_size)
+
+#word = input("Enter in a word: ")
+#print(word)
+#new_word = ""
+#for y in word:
+ # new_word += y
+  #print(new_word)
