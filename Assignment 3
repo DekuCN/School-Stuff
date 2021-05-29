@@ -1,0 +1,59 @@
+import re
+
+wordsDict = {}
+lettersDict = {}
+
+
+
+def cleanupLine(line):
+    output = re.sub(r'[^a-zA-Z0-9]+', ' ', line) 
+    return output
+
+def countWords(line):
+    global wordsDict
+    line = line.lower()
+    test = line.split(" ") #takes the line and makes it an array
+    for word in test: #This loop counts the frequency of each word
+        if word in wordsDict:
+            wordsDict[word] += 1 #if key has been called, add 1 to the key
+        else:
+            wordsDict[word] = 1
+
+def countLetters(line):
+    global lettersDict
+    line = line.lower() #function for all lowercase
+    line = line.replace(" ", "") #replaces the space with nothing
+    for char in line:
+      if char in lettersDict:
+          lettersDict[char] += 1
+      else:
+          lettersDict[char] = 1
+    return lettersDict
+
+def readFiles(filename):
+    handle = open(filename, 'r')
+    for line in handle:
+        stripped_line = cleanupLine(line)
+        countWords(stripped_line)
+        countLetters(stripped_line)
+
+
+def results():
+    readFiles("text1.txt")
+    one = lettersDict["e"]
+    two = wordsDict["to"]
+
+    wordsDict.clear()
+    lettersDict.clear()
+    readFiles("text2.txt")
+    three = lettersDict["t"]
+    four = wordsDict["the"] 
+
+    wordsDict.clear()
+    lettersDict.clear()
+    readFiles("text3.txt")
+    five = lettersDict["w"]
+    six = wordsDict["computer"]
+
+    return [one,three,five,two,four,six]
+print(results())
