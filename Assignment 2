@@ -1,0 +1,40 @@
+import numpy as np
+import sys
+
+nums_list = []
+
+list_limit = int(input("Enter a maximum number for the list: "))
+
+my_base = 0
+
+for i in range(list_limit):
+  if i == 0:
+    my_base = int(input("Enter a base: "))
+    print(my_base)
+    if my_base > 16:
+      nums_list.append("Wrong base")
+      print(nums_list)
+      sys.exit()
+    nums_list.append(my_base)
+  else:
+    elements = input("Enter in your number: ")
+
+    try:
+      elements = int(elements)
+      nums_list.append(str(elements))
+    except ValueError:
+      nums_list.append("NA")
+    
+result = []
+for i in range(len(nums_list)):
+  if i != 0:
+    if nums_list[i] == "NA":
+      result.append("NA")
+    else:
+      #print(np.base_repr(int(nums_list[i]), base = my_base))
+      value = np.base_repr(int(nums_list[i]), base = my_base)
+      result.append(str(value))
+  else:
+    result.append("base={}".format(my_base))
+
+print(result)
