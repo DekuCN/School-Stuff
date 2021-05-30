@@ -1,3 +1,8 @@
+#Author: Christian Nnonyelu
+#Date: 5/30/2021
+#Desc: This program will have the user enter in the length of list, a base, and then a list of base 10 numbers for the program to convert to the specified base utilizing the base_repr function
+
+
 import numpy as np
 import sys
 
@@ -7,11 +12,11 @@ list_limit = int(input("Enter a maximum number for the list: "))
 
 my_base = 0
 
-for i in range(list_limit):
+for i in range(list_limit): #This loop will have the user enter a base and fill a list with numbers
   if i == 0:
-    my_base = int(input("Enter a base: "))
+    my_base = int(input("Enter a base: ")) #Have the user enter a base
     print(my_base)
-    if my_base > 16:
+    if my_base > 16: #This will make sure that no base greater than 16 is given
       nums_list.append("Wrong base")
       print(nums_list)
       sys.exit()
@@ -22,8 +27,8 @@ for i in range(list_limit):
     try:
       elements = int(elements)
       nums_list.append(str(elements))
-    except ValueError:
-      nums_list.append("NA")
+    except ValueError: # This is for anything besides an int
+      nums_list.append("NA") 
     
 result = []
 for i in range(len(nums_list)):
@@ -32,7 +37,12 @@ for i in range(len(nums_list)):
       result.append("NA")
     else:
       #print(np.base_repr(int(nums_list[i]), base = my_base))
-      value = np.base_repr(int(nums_list[i]), base = my_base)
+      value = np.base_repr(int(nums_list[i]), base = my_base) #function for base conversion
+      result.append(str(value))
+  else:
+    result.append("base={}".format(my_base)) #the final format
+
+print(result)
       result.append(str(value))
   else:
     result.append("base={}".format(my_base))
