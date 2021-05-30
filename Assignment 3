@@ -1,3 +1,10 @@
+#Author: Christian Nnonyelu
+#Date: 5/30/2021
+#Desc: This function will read 3 given text files and perform the following tasks:
+# Remove all unwanted characters so only alphabet letters are left
+# Count the frequency of each word in the file
+# Count the frequency of each letter in the file
+# Display the results for the given searches from the assignment
 import re
 
 wordsDict = {}
@@ -5,11 +12,11 @@ lettersDict = {}
 
 
 
-def cleanupLine(line):
-    output = re.sub(r'[^a-zA-Z0-9]+', ' ', line) 
+def cleanupLine(line): 
+    output = re.sub(r'[^a-zA-Z0-9]+', ' ', line) #sub function will take out all unwanted characters
     return output
 
-def countWords(line):
+def countWords(line): #This function should count the frequency of each word
     global wordsDict
     line = line.lower()
     test = line.split(" ") #takes the line and makes it an array
@@ -19,7 +26,7 @@ def countWords(line):
         else:
             wordsDict[word] = 1
 
-def countLetters(line):
+def countLetters(line): #This function should count the frequency of each letter
     global lettersDict
     line = line.lower() #function for all lowercase
     line = line.replace(" ", "") #replaces the space with nothing
@@ -30,7 +37,7 @@ def countLetters(line):
           lettersDict[char] = 1
     return lettersDict
 
-def readFiles(filename):
+def readFiles(filename): # function that opens the file and executes the functions above
     handle = open(filename, 'r')
     for line in handle:
         stripped_line = cleanupLine(line)
@@ -38,22 +45,23 @@ def readFiles(filename):
         countLetters(stripped_line)
 
 
-def results():
+def results(): #Displays the desired format
     readFiles("text1.txt")
-    one = lettersDict["e"]
-    two = wordsDict["to"]
+    one = lettersDict["e"] #displays amount of times "e" appears in text1
+    two = wordsDict["to"] #displays amount of times "to" appears in text1
 
     wordsDict.clear()
     lettersDict.clear()
     readFiles("text2.txt")
-    three = lettersDict["t"]
-    four = wordsDict["the"] 
+    three = lettersDict["t"] #amount of times "t" appears in text2
+    four = wordsDict["the"] #amount of times "the" appears in text2
 
     wordsDict.clear()
     lettersDict.clear()
     readFiles("text3.txt")
-    five = lettersDict["w"]
-    six = wordsDict["computer"]
-
-    return [one,three,five,two,four,six]
+    five = lettersDict["w"] #amount of times "w" appears in text3
+    six = wordsDict["computer"] #amount of times "computer" appears in text3
+    return [one,two,three,four,five,six]
 print(results())
+character_set = ['e','to','t','the','w','computer']
+print(character_set)
