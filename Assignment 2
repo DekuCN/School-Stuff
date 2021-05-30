@@ -8,6 +8,7 @@ import sys
 
 nums_list = []
 
+print("Welcome! This program will convert a list of numbers to any base you specify.")
 list_limit = int(input("Enter a maximum number for the list: "))
 
 my_base = 0
@@ -41,10 +42,5 @@ for i in range(len(nums_list)):
       result.append(str(value))
   else:
     result.append("base={}".format(my_base)) #the final format
-
-print(result)
-      result.append(str(value))
-  else:
-    result.append("base={}".format(my_base))
 
 print(result)
