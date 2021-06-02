@@ -1,0 +1,19 @@
+aSet = {"Luffy", "Zoro", "Usopp", "Sanji", "Nami", "Chopper"}
+
+bSet = {"Robin", "Franky", "Brook", "Luffy", "Nami"}
+
+newSet = aSet - bSet
+print(newSet)
+newSet = bSet - aSet
+print(newSet)
+newSet = aSet ^ bSet
+print(newSet)
+--------------------------------------------------------------
+names = ["Luffy", "Zoro", "Usopp", "Sanji", "Nami", "Chopper"]
+
+
+for name in names:
+    if 'u' in name and len(name) > 4:
+        print(name)
+    else:
+        continue
