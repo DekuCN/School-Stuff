@@ -1,0 +1,92 @@
+# Author: Christian Nnonyelu
+# Date: 6/13/2021
+# Desc: This module will take a message, split the message and randomize the ordering of the words in the message as well as the letters of each split word.
+#This module will also asign a value from 1-10000 to each word
+
+import random
+
+
+# fileName: randStr.py
+
+def randWord(sentence, letter=None):  # this should randomize the ordering of the message
+
+    test_list = sentence.split(" ")
+    random_word = random.choice(test_list)
+    # can't do a randomizer if the list only has 1 item, so if it has greater than 2
+    if len(test_list) < 2:
+        return "Seed is not set"
+
+    isaword = isinstance(random_word, str)  # checks if random_word is string
+    if isaword == False:
+        return "value is not a word"
+    # if integer conversion is successful then it's not a word
+    if (int(random_word)):
+        return "Not a word {} ".format(random_word)
+
+    return random_word
+
+
+def strMixer(string, param2=None):  # This should mix up the characters in each word
+
+    final_str = ""
+    char_list = []
+    sentence = ""
+
+    # check if seed is set
+    if len(string) < 2:
+        return "Seed is not set"
+
+    # check if it's a sentence
+    if " " in string:
+        str_list = string.split(" ")
+
+        random.shuffle(str_list)
+
+        for word in str_list:
+            final_str += word + " "
+
+    else:
+        # else: It's a single word
+        # Puts it into list
+        for char in string:
+            char_list.append(char)
+
+        # randomizes the list
+        random.shuffle(char_list)
+        print(char_list)
+
+        # add everthing to the final string
+        for char in char_list:
+            final_str += char
+
+    return final_str
+
+
+def randIntForWord(word, num=None):  # This function should assign a number value to each word based on ASCII
+    seed = random.randint(0, 100000)
+    random_num = 0
+
+    if len(word) < 2:
+        return "Seed is not set"
+
+    if num != None:
+        # check for str
+        if (isinstance(num, str)):
+            total = 0
+            for char in num:
+                val = ord(char)
+                # adding the corresponding ASCII value of the character. Adding value to a total
+                total += val
+            random_num = total
+        elif (isinstance(num, int)):
+            if num > 100000:
+                return "Too big"
+            else:
+                random_num = num
+    else:
+        random_num = seed
+
+    return random_num
+
+    # func("word", 3) -> 4
+    #
