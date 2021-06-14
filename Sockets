@@ -1,0 +1,52 @@
+#from land_properties import Condo
+import socket
+
+# client --> Server
+
+# local address
+HOST = '127.0.0.1'
+PORT = 5001
+
+# PORT 80 --> HTTP/WEB
+# PORT 443 --> HTTPS/HTTP SSL Security
+# PORT 21 --> FTP --> File Transfer Protocol
+# PORT 22 --> SSH --> Secure Shell Host
+# PORT 25 --> SMTP --> Simple Mail Transfer Protocol
+# PORTS > 5000 --> Operating system ports
+
+# server
+  # binding
+  # listening
+  # accepting
+  # recv
+  # sendall
+
+# client  
+  # connect 
+  # sendall 
+  # recv
+
+
+
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind((HOST, PORT))
+server_socket.listen()
+
+client_connection, address = server_socket.accept()
+
+with client_connection:
+  print("Client connect on: ", address)
+
+  while True:
+    data = client_connection.recv(1024)
+    if data == None:
+      break
+    client_connection.sendall(data)
+
+
+
+client_socket =  socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect((HOST, PORT))
+
+    
