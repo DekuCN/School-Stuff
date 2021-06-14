@@ -1,0 +1,32 @@
+# Author: Christian Nnonyelu
+# Date: 6/13/2021
+# Desc: This file should import the randStr.py module and test each of its functions
+
+import random
+import randStr
+from randStr import *
+
+randStr.randWord(self): #these are meant to test the randWord function
+    s1 = "Hello, this is my test string and should only be one word in return"
+    t1 = randStr.randWord(s1, "a")
+    t3 = randStr.randWord(s1, "b")
+    t4 = randStr.randWord(s1, 5)
+    t5 = randStr.randWord(s1)
+    t6 = randStr.randWord(s1)
+    t2 = randStr.randWord(s1, "a")
+
+randStr.strMixer(self): #these are meant to test the strMixer function
+    s1 = "FRANK"
+    t1 = randStr.strMixer(s1)
+    t2 = randStr.strMixer(s1)
+    t3 = randStr.strMixer(s1)
+    t4 = randStr.strMixer(s1)
+
+    t1 = randStr.strMixer(s1,9)
+    t2 = randStr.strMixer(s1,9)
+    t3 = randStr.strMixer(s1,9)
+    t4 = randStr.strMixer(s1,9)
+
+randStr.randIntForWord(self) #these are meant to test the randIntForWord function
+    s1 = "The walking turtle"
+    t1 = randStr.randIntForWord(s1, 9)
