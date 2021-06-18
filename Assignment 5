@@ -1,0 +1,39 @@
+import os
+
+
+#def print_dirs_recursively(root_dir):
+    #root_dir = os.path.abspath(root_dir)
+    #print(root_dir)
+
+#    for item in os.listdir(root_dir):
+#        item_full_path = os.path.join(root_dir, item)
+#        if os.path.isdir(item_full_path):
+#            print_dirs_recursively(item_full_path
+
+def walk_directory(root_dir):
+
+  root_dir = os.path.abspath(root_dir) #The start of the path
+  root_dir_split = root_dir.split("/") #split path at /
+  
+  folder_name = root_dir_split[len(root_dir_split) - 1] #gets the last part of the split
+  for char in folder_name:
+    if char.isupper():
+      print(root_dir)
+  for item in os.listdir(root_dir):
+    item_full_path = os.path.join(root_dir, item)
+    if os.path.isdir(item_full_path) :
+      walk_directory(item_full_path) #calling itself with recursion
+    elif item.find(".") > 0: #This will find a file since they include "."
+      print(item_full_path + item)
+
+
+first_path = os.getcwd() + "/start" #current directory
+walk_directory(first_path)
+
+# /home/Desktop/test
+# home, Desktop, test
+
+#abspath will get the whole path from start to finish
+#listdir retrieves the files within the File 
+#join adds the next folder to current path
+#isdir checks to make sure if its a valid file path, if not the program stops
