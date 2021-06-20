@@ -1,0 +1,51 @@
+#Author: Christian Nnonyelu
+#Date: 6/20/2021
+#Desc: This program contains a class that makes a list for number and has the methods add, remove, check type, head, and get list. This class also has a sub class that utilizes the attributes and methods of the parent class while also overwiting them with their own method instructions.
+
+class myNumberList: #Class for list of numbers
+
+  def __init__(self, argument=None): #Constructor for list
+    self.numberlist = argument
+
+  def check_type(self, item):
+    if isinstance(item, int) == False:
+      print("Warning. This isn't a number.")
+
+  def add(self, num): #This method will append num
+    self.numberlist.append(num)
+
+  def remove(self, num): #This method will remove num
+    for item in self.numberlist:
+      self.check_type(item)
+      if num == item:
+        self.numberlist.remove(num)
+  
+  def head(self): #gives the start of the list
+    return self.numberlist[0] 
+
+  def getlist(self): #getter
+    return self.numberlist
+
+class myRevOrderedNumberList(myNumberList): #subclass of NumberList for reverse order list
+
+  def head(self):
+    largest = 0
+    for item in self.numberlist: #get largest value
+      self.check_type(item)
+      if item > largest:
+        largest = item
+
+    return largest
+
+  def getlist(self): #getter
+    self.numberlist.reverse() #reverse the order of list
+    return self.numberlist
+
+
+#Testing list  
+nums = [1,2,3,4,5,6]
+
+
+test = myNumberList(nums)
+test2 = myRevOrderedNumberList(nums)
+print(test2.getlist())
